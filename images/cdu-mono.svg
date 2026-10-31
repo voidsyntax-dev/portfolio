@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 420" font-family="ui-monospace,'Cascadia Mono',Consolas,monospace" font-size="13">
+<defs><marker id="a" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 L8 4 L0 8 Z" style="fill:#a3a3a9;stroke:none"/></marker>
+<marker id="b" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 L8 4 L0 8 Z" style="fill:#8e8e94;stroke:none"/></marker></defs>
+<style>*{fill:none;stroke:#8e8e94;stroke-width:1.6;stroke-linejoin:round;stroke-linecap:round}
+.f{stroke:#a3a3a9} text{fill:#bdbdc2;stroke:none} .s{fill:#808086} .t line{stroke:#3a3a3f;stroke-width:1}</style>
+
+<!-- crude feed through the preheat train -->
+<text x="36" y="290">Crude</text>
+<path d="M36 300 H104"/>
+<circle cx="120" cy="300" r="16"/><path d="M108 310 L116 292 L124 308 L132 290"/>
+<path d="M136 300 H164"/>
+<circle cx="180" cy="300" r="16"/><path d="M168 310 L176 292 L184 308 L192 290"/>
+<path d="M196 300 H240" marker-end="url(#b)"/>
+<text class="s" x="150" y="336" text-anchor="middle">Preheat train</text>
+
+<!-- fired heater -->
+<rect x="242" y="246" width="70" height="112" rx="4"/>
+<path d="M242 300 H266 V270 H288 V318 H312" stroke-width="1.2"/>
+<path class="f" d="M258 354 l7 -14 l7 14 M276 354 l7 -14 l7 14"/>
+<text class="s" x="277" y="380" text-anchor="middle">Furnace</text>
+<path d="M312 280 H400 V306 H428" marker-end="url(#b)"/>
+
+<!-- atmospheric column -->
+<rect x="430" y="40" width="60" height="340" rx="30" style="fill:rgba(255,255,255,.02)"/>
+<g class="t"><line x1="432" y1="64" x2="488" y2="64"/><line x1="432" y1="82" x2="488" y2="82"/><line x1="432" y1="100" x2="488" y2="100"/><line x1="432" y1="118" x2="488" y2="118"/><line x1="432" y1="136" x2="488" y2="136"/><line x1="432" y1="154" x2="488" y2="154"/><line x1="432" y1="172" x2="488" y2="172"/><line x1="432" y1="190" x2="488" y2="190"/><line x1="432" y1="208" x2="488" y2="208"/><line x1="432" y1="226" x2="488" y2="226"/><line x1="432" y1="244" x2="488" y2="244"/><line x1="432" y1="262" x2="488" y2="262"/><line x1="432" y1="280" x2="488" y2="280"/><line x1="432" y1="298" x2="488" y2="298"/><line x1="432" y1="316" x2="488" y2="316"/><line x1="432" y1="334" x2="488" y2="334"/><line x1="432" y1="352" x2="488" y2="352"/><line x1="432" y1="370" x2="488" y2="370"/></g>
+<text class="s" x="420" y="60" text-anchor="end">Atmospheric</text>
+<text class="s" x="420" y="76" text-anchor="end">column</text>
+
+<!-- overhead: condenser, reflux drum, naphtha -->
+<path d="M460 40 V20 H620 V30"/>
+<circle cx="620" cy="44" r="14"/><path d="M610 50 L616 38 L624 50 L630 38"/>
+<path d="M620 58 V74"/>
+<rect x="578" y="74" width="92" height="28" rx="14"/>
+<path d="M578 88 H515 V64 H492" marker-end="url(#b)"/>
+<text class="s" x="546" y="80" text-anchor="middle">Reflux</text>
+<path class="f" d="M670 88 H700" marker-end="url(#a)"/>
+<text x="710" y="92">Naphtha</text>
+
+<!-- side draws through strippers -->
+<path class="f" d="M490 160 H545"/><rect x="545" y="138" width="24" height="44" rx="10"/><path class="f" d="M569 174 H700" marker-end="url(#a)"/><text x="710" y="178">Kerosene</text>
+<path class="f" d="M490 226 H545"/><rect x="545" y="204" width="24" height="44" rx="10"/><path class="f" d="M569 240 H700" marker-end="url(#a)"/><text x="710" y="244">Diesel</text>
+<path class="f" d="M490 292 H545"/><rect x="545" y="270" width="24" height="44" rx="10"/><path class="f" d="M569 306 H700" marker-end="url(#a)"/><text x="710" y="310">AGO</text>
+
+<!-- bottoms -->
+<path class="f" d="M460 380 V400 H700" marker-end="url(#a)"/>
+<text x="710" y="404">Residue</text>
+</svg>

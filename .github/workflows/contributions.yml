@@ -1,0 +1,49 @@
+# Refreshes data/contributions.json (read by the GitHub heatmap on the site) once a day.
+name: Update contribution heatmap
+
+on:
+  schedule:
+    - cron: "17 2 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Fetch the last year of contributions
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_USER: voidsyntax-dev
+        run: |
+          gh api graphql -f login="$GH_USER" -f query='
+            query($login: String!) {
+              user(login: $login) {
+                contributionsCollection {
+                  contributionCalendar {
+                    totalContributions
+                    weeks { contributionDays { date contributionCount contributionLevel } }
+                  }
+                }
+              }
+            }' > raw.json
+          jq '.data.user.contributionsCollection.contributionCalendar as $c | {
+                total: { lastYear: $c.totalContributions },
+                contributions: [ $c.weeks[].contributionDays[] | {
+                  date, count: .contributionCount,
+                  level: ({NONE:0, FIRST_QUARTILE:1, SECOND_QUARTILE:2, THIRD_QUARTILE:3, FOURTH_QUARTILE:4}[.contributionLevel])
+                } ]
+              }' raw.json > data/contributions.json
+          rm raw.json
+
+      - name: Commit if changed
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/contributions.json
+          git diff --cached --quiet || git commit -m "Update contribution heatmap data"
+          git push
