@@ -19,10 +19,13 @@ portfolio/
 
 ## Sections
 
-Hero → Experience (IOCL, Jubilant Ingrevia) → Projects (6 cards, click for the full write-up)
-→ Skills → Certifications & Achievements marquee → Coding Profiles → Contact form
-→ **GitHub** (contribution heatmap — the whole `<section id="github">` block is self-contained,
-delete it to remove).
+Hero (headline, animated control-trend card, four headline results) → focus strip
+→ **Selected work** (6 flagship projects; click one for a case-study drawer with method, results
+table and plot) → Other projects (8 repo cards) → Experience → Skills (6 groups)
+→ About (education, achievements, certifications, coding profiles, GitHub heatmap) → Contact.
+
+Light/dark theme toggle (follows the OS on first visit, then remembers the choice).
+Case-study data lives in the `PROJECTS` object at the top of `script.js`.
 
 ## Deploy on GitHub Pages
 
@@ -45,8 +48,8 @@ file pickers hide dot-folders.
 
 ## Notes
 
-- **Project links:** each project popup has its own URL — `…/portfolio/#soft-sensor`, `#predictive`,
-  `#lunar`, `#skillsetu`, `#cdu`, `#biodiesel` — so you can send a recruiter straight to one project.
+- **Project links:** each case study has its own URL — `…/portfolio/#rl-cstr`, `#soft-sensor`,
+  `#tep`, `#energy`, `#refinery`, `#hx` — so you can send a recruiter straight to one project.
 - **Heatmap data:** the site reads `data/contributions.json` (written by the workflow using GitHub's
   GraphQL API). If that file is missing it falls back to `github-contributions-api.jogruber.de`.
 - **Result plots** in the Soft Sensor and Predictive Maintenance popups are taken from the saved
