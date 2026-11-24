@@ -204,21 +204,15 @@ em{font-family:var(--font-serif);font-style:italic;font-weight:400;letter-spacin
 .hero-profile dd span{display:block;font-weight:400;font-size:.84rem;color:var(--muted);margin-top:3px}
 
 .hero-facts{
-  display:grid;grid-template-columns:repeat(4,auto);justify-content:start;
+  display:grid;grid-template-columns:repeat(4,minmax(0,1fr));
   margin-top:56px;border-top:1px solid var(--line);
 }
-.hero-facts div{padding:18px 44px 0 0}
+.hero-facts div{padding:18px 24px 0 0}
 .hero-facts div + div{padding-left:28px;border-left:1px solid var(--line)}
 .hero-facts dt{font-family:var(--font-mono);font-size:.7rem;color:var(--faint);letter-spacing:.07em;text-transform:uppercase;margin-bottom:6px}
 .hero-facts dd{font-size:clamp(1.1rem,2vw,1.4rem);font-weight:500;letter-spacing:-.025em;line-height:1.2}
 .hero-facts dd span{color:var(--faint);font-weight:400}
 
-.scroll-hint{
-  position:absolute;left:50%;bottom:24px;transform:translateX(-50%);z-index:1;
-  width:1px;height:44px;background:var(--line);overflow:hidden;
-}
-.scroll-hint span{position:absolute;left:0;top:0;width:1px;height:14px;background:var(--text);animation:scrollHint 2s var(--ease) infinite}
-@keyframes scrollHint{0%{transform:translateY(-14px)}100%{transform:translateY(44px)}}
 
 /* hero entrance: lines rise in one after another */
 .hero-inner > *{opacity:0;transform:translateY(16px);animation:rise .9s var(--ease) forwards}
@@ -495,7 +489,6 @@ em{font-family:var(--font-serif);font-style:italic;font-weight:400;letter-spacin
   .hero-facts div + div{padding-left:0;border-left:0}
   .hero-facts div:nth-child(even){padding-left:20px;border-left:1px solid var(--line)}
   .hero-facts div:nth-child(n+3){border-top:1px solid var(--line)}
-  .scroll-hint{display:none}
   .skills-grid{grid-template-columns:1fr 1fr}
   .contact{grid-template-columns:1fr;padding:32px}
   .nav-toggle{display:flex}
