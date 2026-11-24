@@ -246,6 +246,9 @@ function localStorage_set(k, v) { try { localStorage.setItem(k, v); } catch (e) 
   const HOLD = 2300, GAP = 500;             // ms the full text stays, ms of empty pause before retyping
   const ERASE = 780;                       // ms to delete the whole phrase
   let i = 0;
+  // reserve the full phrase's width (mono font, so 1ch per letter) so the line never
+  // re-wraps mid-animation on narrow screens
+  wrap.style.minWidth = `calc(${full.length}ch + .62em)`;
   t.textContent = '';
 
   // caret is solid while it moves and blinks while it waits
